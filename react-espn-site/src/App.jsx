@@ -1,7 +1,4 @@
 import { Routes, Route, Link } from "react-router-dom";
-import Baseball from "./pages/Baseball"
-import Football from "./pages/Football"
-import Soccer from "./pages/Soccer"
 import Nav from "./components/Nav"
 import News from "./pages/News";
 import { useState } from "react";
@@ -19,8 +16,6 @@ function App() {
       <Nav></Nav>
       <Routes>
         <Route path="/" element={<News/>}></Route>
-        {/* <Route path="/teams" element={<Teams/>}></Route> */}
-        {/* <Route path="/soccer" element={<Soccer/>}></Route> */}
       </Routes>
       </ActiveSportContext.Provider>
     </>

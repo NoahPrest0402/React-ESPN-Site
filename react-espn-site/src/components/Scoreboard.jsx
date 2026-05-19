@@ -11,7 +11,6 @@ export default function Scoreboard() {
   useEffect(() => {
     let url = "baseball/mlb"
     if (sportContext.currentSport == "Football"){
-      console.log("we should get football")
       url = "football/nfl";
     } else if (sportContext.currentSport == "Soccer"){
       url = "soccer/fifa.world"
