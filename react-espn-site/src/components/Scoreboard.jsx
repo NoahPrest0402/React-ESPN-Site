@@ -35,33 +35,29 @@ export default function Scoreboard() {
   );
 }
 
-function Competition({competition}){
-        const team1 = competition.competitions[0].competitors[0];
-        const team2 = competition.competitions[0].competitors[1];
-    return <>
-        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", border: "1px solid black"}}>
-            <Team team={team1}></Team>
-            <Team team={team2}></Team>
-        </div>
-    </>
+function Competition({ competition }) {
+  const team1 = competition.competitions[0].competitors[0];
+  const team2 = competition.competitions[0].competitors[1];
+
+  return (
+    <div
+      style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", border: "1px solid black"}}>
+      <h5>Final</h5>
+
+      <Team team={team1} />
+      <Team team={team2} />
+    </div>
+  );
 }
 
 function Team({ team }) {
-  //console.log(team)
-    return (
-        <div>
-            <div>
-                <h5>Final</h5>
-            </div>
-            <div style={{display: "flex", alignItems: "center", gap: "1em", borderBottom: "1px solid black", padding: "0 1em"}}>
-                <h3>
-                    {team.team.abbreviation}
-                </h3>
-                <img style={{width: "40px", height: "auto"}} src={team.team.logo} className="logo" alt="" />
-                <h3>
-                    {team.score}
-                </h3>
-            </div>
-        </div>
-    )
+  return (
+    <div style={{display: "flex", alignItems: "center", gap: "1em", borderBottom: "1px solid black", padding: "0 1em"}}>
+      <h3>{team.team.abbreviation}</h3>
+
+      <img style={{ width: "40px", height: "auto" }} src={team.team.logo} className="logo"alt=""/>
+
+      <h3>{team.score}</h3>
+    </div>
+  );
 }
