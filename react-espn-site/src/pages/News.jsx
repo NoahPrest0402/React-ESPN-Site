@@ -16,15 +16,11 @@ export default function News() {
     <>
       <div className="container">
         <h1>ESPN MLB News</h1>
-        <div className="news-grid">
+        <div>
           {data.map((article, index) => (
-            <div className="news-card" key={index}>
-              <img
-                className="news-image"
-                src={article.images?.[0]?.url}
-                alt={article.headline}
-              />
-              <div className="news-content">
+            <div key={index}>
+              <img src={article.images?.[0]?.url} alt={article.headline} />
+              <div>
                 <h2>{article.headline}</h2>
                 <p>{article.description}</p>
                 <a href={article.links.web.href}>Read More</a>
