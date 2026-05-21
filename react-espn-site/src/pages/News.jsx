@@ -1,25 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import sportLinks from "../helpers/getSportLink";
+import ActiveSportContext from "../contexts/ActiveSport";
+import "../App.css";
 export default function News() {
-  //Const variable that can be changed
   const [data, setData] = useState([]);
-
-  //Runs when component loads initially
+  const sportContext = useContext(ActiveSportContext);
   useEffect(() => {
-    fetch(`https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news`)
+    let url = sportLinks[sportContext.currentSport]; //"baseball/mlb"
+    fetch(`https://site.api.espn.com/apis/site/v2/sports/${url}/news`)
       .then((res) => res.json())
       .then((res) => {
         setData(res.articles);
       });
-  }, []);
+  }, [sportContext]);
 
   return (
     <>
       <div className="container">
-        <h1>ESPN MLB News</h1>
+        <h1>ESPN News</h1>
         <div>
           {data.map((article, index) => (
             <div key={index}>
-              <img src={article.images?.[0]?.url} alt={article.headline} />
+              <img
+                className="news-img"
+                src={article.images?.[0]?.url}
+                alt={article.headline}
+              />
               <div>
                 <h2>{article.headline}</h2>
                 <p>{article.description}</p>
