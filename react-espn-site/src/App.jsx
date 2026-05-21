@@ -5,7 +5,7 @@ import { useState } from "react";
 import ActiveSportContext from "./contexts/ActiveSport";
 
 function App() {
-  const [currentSport, setSport] = useState();
+  const [currentSport, setSport] = useState("Baseball");
   const activeSport = {
     currentSport: currentSport,
     setSport: setSport,

@@ -1,20 +1,14 @@
 import { useState, useEffect, useContext } from "react";
 import ActiveSportContext from "../contexts/ActiveSport";
-
+import sportLinks from "../helpers/getSportLink";
 export default function Scoreboard() {
-  //Const variable that can be changed
   const [data, setData] = useState();
   const sportContext = useContext(ActiveSportContext);
 
+  console.log(sportLinks)
  
-  //Runs when component loads initially
   useEffect(() => {
-    let url = "baseball/mlb"
-    if (sportContext.currentSport == "Football"){
-      url = "football/nfl";
-    } else if (sportContext.currentSport == "Soccer"){
-      url = "soccer/fifa.world"
-    }
+    let url = sportLinks[sportContext.currentSport] ;//"baseball/mlb"
     fetch(
       `https://site.api.espn.com/apis/site/v2/sports/${url}/scoreboard`
     )
