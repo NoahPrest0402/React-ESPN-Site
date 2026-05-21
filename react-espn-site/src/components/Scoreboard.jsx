@@ -42,7 +42,7 @@ function Competition({ competition }) {
   return (
     <div
       style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", border: "1px solid black"}}>
-      <h5>Final</h5>
+      {competition.status.type.completed && <h5>Final</h5>}
 
       <Team team={team1} />
       <Team team={team2} />
